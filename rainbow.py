@@ -18,10 +18,13 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     
-    pygame.draw.circle(screen, "blue", (size_x // 2, size_y // 2),
-        300) 
+    colors = colors[1:] + [colors[0]]
+    for i in range(len(colors)):
+        pygame.draw.circle(screen, colors[i], (size_x // 2, size_y // 2),
+        100 + i * 30, 30, draw_top_left=True, draw_top_right=True) 
+    
     pygame.display.flip()
-    clock.tick(60)
+    clock.tick(4)
 
 
 pygame.quit()
